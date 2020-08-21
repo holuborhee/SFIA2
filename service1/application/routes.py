@@ -9,9 +9,13 @@ def home():
 
 @app.route('/fortuneteller', methods=['GET', 'POST'])
 def fortuneteller():
-    timeframe = requests.get('http://service2:5001/timeframe')
-    fortune = requests.get('http://service3:5002/fortune')
+    tf = requests.get('http://service2:5001/timeframe')
+    fort = requests.get('http://service3:5002/fortune')
     
-    outcome = requests.post("http://service4:5003/outcome", data1=timeframe.text, data2=fortune.text)
+    percent = requests.post("http://service4:5003/outcome", data=tf.text)
+
+    timeframe = tf.text
+    fortune = fort.text
+    percentage = percent.text
     
-    return render_template('fortune.html', title='Fortune', outcome=outcome)
+    return render_template('fortune.html', title='Fortune', timeframe=timeframe, fortune=fortune, percentage=percentage)
