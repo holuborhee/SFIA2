@@ -6,7 +6,7 @@
     <h2>Previously told fortunes:</h2><br>
     {% for fortune in fortunes %}
     <div>
-        <p>{{ fortune.timeframe }}, {{ fortune.fortune }} with a percentage likelihood of {{ fortune.percentage }}</p>
+        <h4>{{ fortune.timeframe }}, {{ fortune.fortune }} with a percentage likelihood of {{ fortune.percentage }}</h4>
     </div>
     {% endfor %}
 {% endblock body_content %}

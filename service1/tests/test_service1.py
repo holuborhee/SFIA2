@@ -1,15 +1,17 @@
 from unittest.mock import patch
 import requests
+import os
 
 from flask import url_for
 from flask_testing import TestCase
+from application.models import ToldFortunes
 
-from application import app
+from application import app, db
 
 class TestBase(TestCase):
     def create_app(self):
         config_name = 'testing'
-        app.config.update(SQLALCHEMY_DATABASE_URI=getenv('TEST_DB_URI'),
+        app.config.update(SQLALCHEMY_DATABASE_URI=os.getenv('TEST_DATABASE_URI'),
             WTF_CSRF_ENABLED=False,
             DEBUG=True
             )
@@ -40,6 +42,7 @@ class TestViews(TestBase):
     def test_home(self):
         response = self.client.get(url_for('home'))
         self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Today', response.data)
 
     def test_fortuneteller(self):
         with patch('requests.get') as t:
