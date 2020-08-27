@@ -1,5 +1,12 @@
 {% extends 'layout.html' %}
 
 {% block body_content %}
-    <a href="{{ url_for('fortuneteller') }}">Get your fortune told</a>
+    <a href="{{ url_for('fortuneteller') }}">Get your fortune told</a><br>
+
+    <h2>Previously told fortunes:</h2><br>
+    {% for fortune in fortunes %}
+    <div>
+        <p>{{ fortune.timeframe }}, {{ fortune.fortune }} with a percentage likelihood of {{ fortune.percentage }}</p>
+    </div>
+    {% endfor %}
 {% endblock body_content %}

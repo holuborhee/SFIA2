@@ -8,7 +8,32 @@ from application import app
 
 class TestBase(TestCase):
     def create_app(self):
+        config_name = 'testing'
+        app.config.update(SQLALCHEMY_DATABASE_URI=getenv('TEST_DB_URI'),
+            WTF_CSRF_ENABLED=False,
+            DEBUG=True
+            )
         return app
+
+    def setUp(self):
+        # ensure there is no data in the test database when the test starts
+        db.session.commit()
+        db.drop_all()
+        db.create_all()
+
+        fortuneData = ToldFortunes(
+            timeframe = "Today",
+            fortune = "an acquaintance of the past will positively affect you",
+            percentage = "15%"
+        )
+
+        db.session.add(fortuneData)
+        db.session.commit()
+
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
+
 
 class TestViews(TestBase):
 
