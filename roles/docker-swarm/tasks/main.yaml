@@ -1,0 +1,30 @@
+---
+- name: Check swarm status
+  shell: docker node ls
+  register: swarm_status
+  ignore_errors: true
+
+- name: Initialise docker swarm
+  shell: docker swarm init
+  when: swarm_status.rc != 0
+  run_once: true
+
+- name: Manager hostname
+  shell: hostname
+  register: m_hostname
+
+- name: Get worker node join-token
+  shell: docker swarm join-token --quiet worker
+  register: w_token
+
+# add_host to use variables in other plays of the same playbook
+# stdout sends out output
+- name: Get manager hostname
+  add_host:
+    name: "m_hostname"
+    value: "{{ m_hostname.stdout }}"
+
+- name: Get worker token
+  add_host:
+    name: "w_token"
+    value: "{{ w_token.stdout }}"
