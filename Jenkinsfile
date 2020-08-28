@@ -22,7 +22,7 @@ pipeline {
                 sh 'sudo docker push ngww/service3:latest'
                 sh 'sudo docker push ngww/service4:latest'
                 sh 'sudo docker stack deploy --compose-file docker-compose.yaml sfia2'
-                sh 'python3 ~SFIA2/service1/create.py'
+                sh 'python3 ~/SFIA2/service1/create.py'
             }
         }
     }
