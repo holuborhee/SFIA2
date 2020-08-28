@@ -15,9 +15,9 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
+                sh 'sudo chmod 666 /var/run/docker.sock'
                 sh 'source .profile'
                 sh 'echo ${DATABASE_URI}'
-                sh 'sudo chmod 666 /var/run/docker.sock'
                 sh 'docker-compose build'
                 sh 'sudo docker login'
                 sh 'sudo docker push ngww/service1:latest'
