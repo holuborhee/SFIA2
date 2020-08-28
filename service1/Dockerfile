@@ -10,4 +10,5 @@ COPY . .
 
 EXPOSE 5000
 
+CMD ["/usr/local/bin/python3", "create.py"]
 ENTRYPOINT ["/usr/local/bin/python3", "app.py"]
