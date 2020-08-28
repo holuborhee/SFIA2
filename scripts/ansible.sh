@@ -6,4 +6,4 @@ source ~/.bashrc
 
 pip3 install --user ansible
 
-ansible-playbook -i inventory.cfg /playbook.yaml
+ansible-playbook -i inventory.cfg playbook.yaml
