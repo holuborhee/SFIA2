@@ -4,7 +4,6 @@ pipeline {
         stage('Build Dependencies') { 
             steps {
                 sh 'chmod +x ./scripts/*'
-                sh './scripts/dependencies.sh'
                 sh './scripts/ansible.sh'
             }
         }
