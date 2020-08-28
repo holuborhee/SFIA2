@@ -7,4 +7,3 @@ source ~/.bashrc
 sudo pip3 install --user ansible
 
 ansible --version
-ansible-playbook -i inventory.cfg playbook.yaml
