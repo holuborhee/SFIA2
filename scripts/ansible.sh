@@ -7,5 +7,5 @@ source ~/.bashrc
 
 sudo pip3 install --user ansible
 
-source /home/jenkins/.local/bin/.ssh/config
+source /home/jenkins/.ssh/config
 /home/jenkins/.local/bin/ansible-playbook -i inventory.cfg playbook.yaml
