@@ -10,8 +10,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'chmod +x ./scripts/*'
-                sh './scripts/deploy.sh' 
+                sh 'sudo docker stack deploy --compose-file docker-compose.yaml sfia2' 
             }
         }
     }
