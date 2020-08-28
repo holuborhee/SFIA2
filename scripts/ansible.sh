@@ -7,4 +7,4 @@ source ~/.bashrc
 
 sudo pip3 install --user ansible
 
-ansible-playbook -i inventory.cfg ~/SFIA2/playbook.yaml
+/home/jenkins/.local/bin/ansible-playbook -i inventory.cfg playbook.yaml
