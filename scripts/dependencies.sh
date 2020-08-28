@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo apt install -y python3 
-sudo apt install -y python3-pip
+apt install -y python3 
+apt install -y python3-pip
