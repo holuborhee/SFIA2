@@ -1,6 +1,11 @@
 pipeline {
     agent any 
     stages {
+        stage('Get Repo') {
+            steps {
+                sh './scripts/getrepo.sh'
+            }
+        }
         stage('Build Dependencies') { 
             steps {
                 sh 'chmod +x ./scripts/*'
