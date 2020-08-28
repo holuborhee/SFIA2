@@ -12,10 +12,10 @@ pipeline {
             steps {
                 sh 'sudo docker-compose build'
                 sh 'sudo docker login'
-                sh 'docker push ngww/service1:latest'
-                sh 'docker push ngww/service2:latest'
-                sh 'docker push ngww/service3:latest'
-                sh 'docker push ngww/service4:latest'
+                sh 'sudo docker push ngww/service1:latest'
+                sh 'sudo docker push ngww/service2:latest'
+                sh 'sudo docker push ngww/service3:latest'
+                sh 'sudo docker push ngww/service4:latest'
                 sh 'sudo docker stack deploy --compose-file docker-compose.yaml sfia2' 
             }
         }
