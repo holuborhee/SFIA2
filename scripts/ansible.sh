@@ -5,10 +5,7 @@ echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc
 sudo chown -R $(whoami):$(whoami) ~/*
 source ~/.bashrc
 
-sudo chown -R $(whoami):$(whoami) ~/*
-source ~/.bashrc
-
 sudo pip3 install --user ansible
 
-source ~/.ssh/config
+source /home/jenkins/.local/bin/.ssh/config
 /home/jenkins/.local/bin/ansible-playbook -i inventory.cfg playbook.yaml
