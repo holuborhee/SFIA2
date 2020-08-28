@@ -21,7 +21,7 @@ pipeline {
                 sh 'sudo docker push ngww/service2:latest'
                 sh 'sudo docker push ngww/service3:latest'
                 sh 'sudo docker push ngww/service4:latest'
-                sh 'sudo chmod jenkins /var/run/docker.sock'
+                sh 'sudo chmod 666 /var/run/docker.sock'
                 sh 'docker stack deploy --compose-file docker-compose.yaml sfia2'
             }
         }
