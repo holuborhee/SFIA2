@@ -15,7 +15,8 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'source /home/jenkins/.profile'
+                sh 'source .profile'
+                sh 'echo ${DATABASE_URI}'
                 sh 'sudo chmod 666 /var/run/docker.sock'
                 sh 'docker-compose build'
                 sh 'sudo docker login'
