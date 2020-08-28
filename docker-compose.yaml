@@ -1,5 +1,18 @@
 version: '3.7'
-services: 
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
+    deploy:
+      replicas: 3
+  
   service1:
     image: service1
     build: ./service1
@@ -9,6 +22,9 @@ services:
       protocol: tcp
     environment: 
       DATABASE_URI: ${DATABASE_URI}
+      TEST_DATABASE_URI: ${TEST_DATABASE_URI}
+    deploy:
+      replicas: 3
   service2:
     image: service2
     build: ./service2
@@ -16,6 +32,8 @@ services:
     - target: 5001
       published: 5001
       protocol: tcp
+    deploy:
+      replicas: 3
   service3:
     image: service3
     build: ./service3
@@ -23,6 +41,8 @@ services:
     - target: 5002
       published: 5002
       protocol: tcp
+    deploy:
+      replicas: 3
   service4:
     image: service4
     build: ./service4
@@ -30,6 +50,8 @@ services:
     - target: 5003
       published: 5003
       protocol: tcp
+    deploy:
+      replicas: 3
 
   database:
     image: mysql:5.7
@@ -38,11 +60,11 @@ services:
       published: 3306
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: fortunes
+      MYSQL_DATABASE: sfia2
     volumes:
     - type: volume
       source: database-volume
       target: /var/lib/mysql
 
-  volumes: 
-    database-volume:
+volumes: 
+  database-volume:

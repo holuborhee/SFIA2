@@ -6,9 +6,10 @@
   roles:
     - install-docker
 
-- name: Install docker on worker nodes
+- name: Install docker on worker node
   hosts: swarm-workers
   become: yes
+  become_user: root
   roles:
     - install-docker
 
