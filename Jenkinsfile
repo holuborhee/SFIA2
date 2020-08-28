@@ -10,6 +10,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
+                sh 'chmod +x ./scripts/*'
                 sh './scripts/deploy.sh' 
             }
         }
