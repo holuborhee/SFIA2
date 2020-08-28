@@ -7,6 +7,6 @@ source ~/.bashrc
 sudo chown -R $(whoami):$(whoami) ~/*
 source ~/.bashrc
 
-pip3 install --user ansible
+sudo pip3 install --user ansible
 
 ansible-playbook -i inventory.cfg playbook.yaml
