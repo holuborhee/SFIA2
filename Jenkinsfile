@@ -4,13 +4,13 @@ pipeline {
         stage('Build Dependencies') { 
             steps {
                 sh 'chmod +x ./scripts/*'
-                sh './script/dependencies.sh'
-                sh './script/ansible.sh'
+                sh './scripts/dependencies.sh'
+                sh './scripts/ansible.sh'
             }
         }
         stage('Deploy') { 
             steps {
-                sh './script/deploy.sh' 
+                sh './scripts/deploy.sh' 
             }
         }
     }
