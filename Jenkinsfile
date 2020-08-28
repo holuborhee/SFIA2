@@ -17,7 +17,7 @@ pipeline {
                 sh 'sudo docker push ngww/service3:latest'
                 sh 'sudo docker push ngww/service4:latest'
                 sh 'sudo docker stack deploy --compose-file docker-compose.yaml sfia2' 
-                sh 'sudo docker exec -it ngww/service1 bash'
+                sh 'sudo docker exec -it 324m0knhi2yas6i0zclr8wfnf bash'
                 sh 'python3 create.py'
                 sh 'exit'
             }
