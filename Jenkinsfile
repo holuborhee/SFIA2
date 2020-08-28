@@ -11,7 +11,8 @@ pipeline {
                 sh 'chmod +x ./scripts/*'
                 sh './scripts/dependencies.sh'
                 sh './scripts/ansible.sh'
-                sh 'ansible-playbook -i inventory.cfg SFIA2/playbook.yaml'
+                sh 'cd SFIA2'
+                sh 'ansible-playbook -i inventory.cfg playbook.yaml'
             }
         }
         stage('Deploy') { 
