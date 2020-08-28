@@ -17,11 +17,11 @@ pipeline {
             steps {
                 sh 'sudo chmod 666 /var/run/docker.sock'
                 sh 'docker-compose build'
-                sh 'docker login'
-                sh 'docker push ngww/service1:latest'
-                sh 'docker push ngww/service2:latest'
-                sh 'docker push ngww/service3:latest'
-                sh 'docker push ngww/service4:latest'
+                sh 'sudo docker login'
+                sh 'sudo docker push ngww/service1:latest'
+                sh 'sudo docker push ngww/service2:latest'
+                sh 'sudo docker push ngww/service3:latest'
+                sh 'sudo docker push ngww/service4:latest'
                 sh 'docker stack deploy --compose-file docker-compose.yaml sfia2'
             }
         }
