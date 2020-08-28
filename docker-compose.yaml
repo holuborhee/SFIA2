@@ -14,7 +14,7 @@ services:
       replicas: 3
   
   service1:
-    image: service1
+    image: ngww/service1
     build: ./service1
     ports:
     - target: 5000
@@ -26,7 +26,7 @@ services:
     deploy:
       replicas: 3
   service2:
-    image: service2
+    image: ngww/service2
     build: ./service2
     ports:
     - target: 5001
@@ -35,7 +35,7 @@ services:
     deploy:
       replicas: 3
   service3:
-    image: service3
+    image: ngww/service3
     build: ./service3
     ports:
     - target: 5002
@@ -44,7 +44,7 @@ services:
     deploy:
       replicas: 3
   service4:
-    image: service4
+    image: ngww/service4
     build: ./service4
     ports:
     - target: 5003
