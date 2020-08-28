@@ -3,10 +3,8 @@ pipeline {
     stages {
         stage('Build Dependencies') { 
             steps {
-                sh 'sudo apt-get update'
-                sh 'sudo apt-get -y upgrade'
-                sh 'sudo apt install -y python3 python3-pip'
                 sh 'chmod +x ./scripts/*'
+                sh './scripts/dependencies.sh'
                 sh './scripts/ansible.sh'
             }
         }

@@ -5,6 +5,7 @@ echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc
 source ~/.bashrc
 
 sudo pip3 install --user ansible
-ansible --version
 
+source ~/.ssh/config
+ansible --version
 ansible-playbook -i inventory.cfg playbook.yaml
