@@ -22,6 +22,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
+                sh 'chmod +x ./scripts/*'
                 sh 'sudo chmod 666 /var/run/docker.sock'
                 sh 'docker-compose build'
                 sh 'sudo docker login'
@@ -30,6 +31,7 @@ pipeline {
                 sh 'sudo docker push ngww/service3:latest'
                 sh 'sudo docker push ngww/service4:latest'
                 sh 'docker stack deploy --compose-file docker-compose.yaml sfia2'
+                sh './scripts/data.sh'
             }
         }
     }
