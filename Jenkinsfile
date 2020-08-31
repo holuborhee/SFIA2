@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Get Repo') {
             steps {
+                sh 'chmod +x ./scripts/*'
                 sh './scripts/getrepo.sh'
             }
         }
@@ -11,6 +12,12 @@ pipeline {
                 sh 'chmod +x ./scripts/*'
                 sh './scripts/dependencies.sh'
                 sh './scripts/ansible.sh'
+            }
+        }
+        stage('Test application') {
+            steps {
+                sh 'chmod +x ./scripts/*'
+                sh './scripts/tests.sh'
             }
         }
         stage('Deploy') { 
