@@ -22,8 +22,8 @@ services:
       published: 5000
       protocol: tcp
     environment: 
-      DATABASE_URI: ${DATABASE_URI}
-      TEST_DATABASE_URI: ${TEST_DATABASE_URI}
+      DATABASE_URI: "mysql+pymysql://root:ZaneleN11@35.197.221.222:3306/fortunes"
+      TEST_DATABASE_URI: "mysql+pymysql://root:ZaneleN11@35.197.221.222:3306/test_fortunes"
     deploy:
       replicas: 3
   service2:
@@ -60,7 +60,7 @@ services:
     - target: 3306
       published: 3306
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ZaneleN11
       MYSQL_DATABASE: sfia2
     volumes:
     - type: volume
