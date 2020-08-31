@@ -22,8 +22,8 @@ services:
       published: 5000
       protocol: tcp
     environment: 
-      DATABASE_URI: mysql+pymysql://root:ZaneleN11@35.197.221.222:3306/fortunes
-      TEST_DATABASE_URI: mysql+pymysql://root:ZaneleN11@35.197.221.222:3306/test_fortunes
+      DATABASE_URI: mysql+pymysql://root:ZaneleN11@database:3306/sfia2
+      TEST_DATABASE_URI: mysql+pymysql://root:ZaneleN11@database:3306/test_fortunes
     deploy:
       replicas: 3
   service2:
